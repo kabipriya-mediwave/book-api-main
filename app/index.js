@@ -30,7 +30,7 @@ app.post("/books", (req, res, next) => {
   return res.json(book);
 });
 
-//CREATE rating
+//Rating
 app.post("/books/:id/rating", (req, res) => {
   const ratingSchema = Joi.object({
     rating: Joi.number().min(0).max(5).required(),
@@ -50,7 +50,7 @@ app.post("/books/:id/rating", (req, res) => {
   return res.json(rating);
 });
 
-//READ - to get one book
+//Get one book
 app.get("/books/:id", (req, res, next) => {
   const book = getBook({ id: req.params.id });
   if (!book) {
